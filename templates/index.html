@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FixMyHostel</title>
+   <link rel="stylesheet" href="/static/css/index.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- PAGE 1: LOGIN -->
+    <div id="login-page" class="page active">
+        <div class="background-overlay"></div>
+        <div class="brand-header">
+            <h1><i class="fas fa-tools"></i> FixMyHostel</h1>
+            <p>Hostel Complaints record System</p>
+        </div>
+        
+        <div class="login-container">
+            <!-- Student Login -->
+            <div class="login-box student-box">
+                <div class="box-icon"><i class="fas fa-user-graduate"></i></div>
+                <h2>Student Portal</h2>
+                <form id="student-login-form">
+                    <div class="input-group">
+                        <input type="text" id="student-user" required>
+                        <label>Username</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="student-pass" required>
+                        <label>Password</label>
+                    </div>
+                    <button type="submit" class="btn primary-btn">Login as Student</button>
+                </form>
+            </div>
+
+            <!-- Admin Login -->
+            <div class="login-box admin-box">
+                <div class="box-icon"><i class="fas fa-user-shield"></i></div>
+                <h2>Admin Portal</h2>
+                <form id="admin-login-form">
+                    <div class="input-group">
+                        <input type="text" id="admin-user" required>
+                        <label>Admin ID</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="admin-pass" required>
+                        <label>Password</label>
+                    </div>
+                    <button type="submit" class="btn secondary-btn">Login as Admin</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 2: ADMIN DASHBOARD -->
+    <div id="admin-page" class="page hidden">
+        <header class="dashboard-header">
+            <div class="user-info">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Admin" alt="Admin" class="avatar">
+                <h2>Hi, Admin</h2>
+            </div>
+            <div class="system-status">
+                <span class="priority-badge" id="priority-level">Priority: Normal</span>
+                <button class="logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </header>
+
+        <main class="dashboard-content">
+            <div class="panel full-width">
+                <h3><i class="fas fa-clipboard-list"></i> All Registered Complaints</h3>
+                <div class="table-container">
+                    <table id="admin-complaints-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Student</th>
+                                <th>Topic</th>
+                                <th>Timing</th>
+                                <th>Status Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-table-body">
+                            <!-- JS will populate this -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- PAGE 3: STUDENT DASHBOARD -->
+    <div id="student-page" class="page hidden">
+        <header class="dashboard-header">
+            <div class="user-info">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Student" alt="Student" class="avatar">
+                <h2 id="student-welcome">Hi, Student</h2>
+            </div>
+            <button class="logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </header>
+
+        <main class="dashboard-content grid-2">
+            <!-- Add Complaint Box -->
+            <div class="panel">
+                <h3><i class="fas fa-plus-circle"></i> Register New Complaint</h3>
+                <form id="new-complaint-form">
+                    <div class="input-group static">
+                        <label>Topic / Category</label>
+                        <select id="comp-topic" required>
+                            <option value="Plumbing">Plumbing</option>
+                            <option value="Electrical">Electrical</option>
+                            <option value="Wi-Fi">Wi-Fi / Network</option>
+                            <option value="Cleanliness">Cleanliness</option>
+                        </select>
+                    </div>
+                    <div class="input-group static">
+                        <label>Room Number</label>
+                        <input type="text" id="comp-room" placeholder="e.g., A-302" required>
+                    </div>
+                    <div class="input-group static">
+                        <label>Description</label>
+                        <textarea id="comp-desc" rows="4" placeholder="Detail the issue..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn primary-btn">Submit Complaint</button>
+                </form>
+            </div>
+
+            <!-- Track Complaints Box -->
+            <div class="panel">
+                <h3><i class="fas fa-search"></i> My Complaints</h3>
+                <div class="tracker-list" id="student-tracker-list">
+                    <!-- JS will populate this -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/static/js/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+instance/
+
+# Environment variables (Keep your Aiven password secret!)
+.env
+
+# Local database
+campusfix.db
+
+# VS Code settings
+.vscode/

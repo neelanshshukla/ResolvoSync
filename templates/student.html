@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusFix - Student Dashboard</title>
+    <link rel="stylesheet" href="/static/css/student.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="student-page" class="page active">
+        <header class="dashboard-header">
+            <div class="user-info">
+                <h2 id="student-welcome">Hi, John</h2> 
+            </div>
+            <button class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </header>
+
+        <main class="dashboard-content grid-2">
+            <!-- Box 1: Add Complaint -->
+            <div class="panel">
+                <h3><i class="fas fa-plus-circle"></i> Register New Complaint</h3>
+                <form id="new-complaint-form">
+                    <div class="input-group static">
+                        <label>Room Number</label>
+                        <input type="text" id="comp-room" placeholder="e.g., A-302" required>
+                    </div>
+                    <div class="input-group static">
+                        <label>Description</label>
+                        <textarea id="comp-desc" rows="4" placeholder="Detail the issue..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn primary-btn">Submit Complaint</button>
+                </form>
+            </div>
+
+            <!-- Box 2: Track Complaints -->
+            <div class="panel">
+                <h3><i class="fas fa-search"></i> My Complaints</h3>
+                <div class="tracker-list" id="student-tracker-list">
+                    <!-- JS will populate this -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Force the browser to load the new JS file -->
+    <script src="/static/js/student.js?v=3"></script>
+</body>
+</html>
