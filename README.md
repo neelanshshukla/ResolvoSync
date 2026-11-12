@@ -2,6 +2,9 @@
 
 CampusFix is a full-stack web application designed to streamline the process of reporting and resolving hostel maintenance issues. It provides separate portals for Students and Administrators.
 
+## 🏗️ System Architecture
+
+```mermaid
 flowchart TD
     %% Define Styles
     classDef frontend fill:#3b82f6,stroke:#1e3a8a,stroke-width:2px,color:#fff;
