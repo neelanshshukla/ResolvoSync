@@ -1,3 +1,4 @@
+import os
 import pymysql
 pymysql.install_as_MySQLdb()
 from flask import Flask, jsonify, render_template, request, session
@@ -9,19 +10,23 @@ from datetime import datetime
 app = Flask(__name__)
 app.config.from_object(Config)
 
-# --- NEW CODE FOR SSL CERTIFICATE ---
+# --- NEW SSL CONFIGURATION ---
 db_url = app.config.get("SQLALCHEMY_DATABASE_URI")
 if db_url and "mysql" in db_url:
     if "?ssl-mode=REQUIRED" in db_url:
         db_url = db_url.replace("?ssl-mode=REQUIRED", "")
     
+    # Dynamically find the exact folder where app.py is running
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    cert_path = os.path.join(base_dir, "ca.pem")
+
     app.config["SQLALCHEMY_ENGINE_OPTIONS"] = {
-    "connect_args": {
-        "ssl": {
-            "ca": "/opt/render/project/src/ca.pem"  # Use the full path on Render
+        "connect_args": {
+            "ssl": {
+                "ca": cert_path  # Use the absolute path
+            }
         }
     }
-}
 
 db.init_app(app)
 # ------------------------------------
