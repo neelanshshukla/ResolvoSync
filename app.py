@@ -1,3 +1,5 @@
+import pymysql
+pymysql.install_as_MySQLdb()
 from flask import Flask, jsonify, render_template, request, session
 from config import Config
 from models import db, Complaint, Admin, Student
