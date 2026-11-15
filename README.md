@@ -1,6 +1,6 @@
-# ResolveSync - Hostel Complaint Intelligence System
+# ResolvoSync - Hostel Complaint Intelligence System
 
-ResolveSync is a full-stack web application designed to streamline the process of reporting and resolving hostel maintenance issues. It provides separate portals for Students and Administrators.
+ResolvoSync is a full-stack web application designed to streamline the process of reporting and resolving hostel maintenance issues. It provides separate portals for Students and Administrators.
 
 ## 🏗️ System Architecture
 
