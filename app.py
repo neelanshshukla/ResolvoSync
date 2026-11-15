@@ -8,7 +8,23 @@ from datetime import datetime
 
 app = Flask(__name__)
 app.config.from_object(Config)
+
+# --- NEW CODE FOR SSL CERTIFICATE ---
+db_url = app.config.get("SQLALCHEMY_DATABASE_URI")
+if db_url and "mysql" in db_url:
+    if "?ssl-mode=REQUIRED" in db_url:
+        db_url = db_url.replace("?ssl-mode=REQUIRED", "")
+    
+    app.config["SQLALCHEMY_ENGINE_OPTIONS"] = {
+        "connect_args": {
+            "ssl": {
+                "ca": "ca.pem"
+            }
+        }
+    }
+
 db.init_app(app)
+# ------------------------------------
 
 # ==========================================
 # PAGE ROUTES
