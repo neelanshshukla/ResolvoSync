@@ -1,6 +1,6 @@
-# CampusFix - Hostel Complaint Intelligence System
+# ResolveSync - Hostel Complaint Intelligence System
 
-CampusFix is a full-stack web application designed to streamline the process of reporting and resolving hostel maintenance issues. It provides separate portals for Students and Administrators.
+ResolveSync is a full-stack web application designed to streamline the process of reporting and resolving hostel maintenance issues. It provides separate portals for Students and Administrators.
 
 ## 🏗️ System Architecture
 
