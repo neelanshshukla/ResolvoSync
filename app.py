@@ -16,12 +16,12 @@ if db_url and "mysql" in db_url:
         db_url = db_url.replace("?ssl-mode=REQUIRED", "")
     
     app.config["SQLALCHEMY_ENGINE_OPTIONS"] = {
-        "connect_args": {
-            "ssl": {
-                "ca": "ca.pem"
-            }
+    "connect_args": {
+        "ssl": {
+            "ca": "/opt/render/project/src/ca.pem"  # Use the full path on Render
         }
     }
+}
 
 db.init_app(app)
 # ------------------------------------
